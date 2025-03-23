@@ -1,0 +1,24 @@
+version: '3'
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg15
+    container_name: timescaledb-go
+    environment:
+      POSTGRES_PASSWORD: 'admin'
+      POSTGRES_USER: 'admin'
+      POSTGRES_DB: 'testdb'
+    ports:
+      - '5432:5432'
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer-go
+    ports:
+      - '8085:8080'
+    depends_on:
+      - timescaledb
+
+volumes:
+  timescaledb_data:

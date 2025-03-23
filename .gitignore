@@ -1,0 +1,15 @@
+# Ignorar o diretório de pacotes compilados e binários
+/bin/
+/build/
+
+# Ignorar arquivos exe
+server.exe
+client.exe
+
+# Arquivos de dependência gerados por Go
+/vendor/
+
+# Arquivos temporários e cache do Go
+/pkg/
+/out/
+
